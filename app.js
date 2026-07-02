@@ -1,6 +1,7 @@
 (() => {
   const DATA = window.GORMITI_DATA;
-  const STORAGE_KEY = 'gormiti-checklist-v1';
+  const STORAGE_KEYS = ['gormiti-checklist-v3', 'gormiti-checklist-v2', 'gormiti-checklist-v1'];
+  const STORAGE_KEY = STORAGE_KEYS[0];
   const app = document.getElementById('app');
   const importFile = document.getElementById('importFile');
   let view = { screen: 'home', seriesId: null, filter: 'all', query: '' };
@@ -11,8 +12,13 @@
   }
 
   function loadState(){
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
-    catch { return {}; }
+    for (const key of STORAGE_KEYS) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key));
+        if (value && typeof value === 'object' && Object.keys(value).length) return value;
+      } catch {}
+    }
+    return {};
   }
   function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
   function allCharacters(series){ return series.tribes.flatMap(t => t.characters.map(c => ({...c, tribe:t}))); }
@@ -37,7 +43,7 @@
 
   function topbar(series){
     return `<header class="topbar"><div class="topbar-inner">
-      <button class="logo" data-action="home" aria-label="Torna alle serie">G</button>
+      <button class="logo" data-action="home" aria-label="Torna alle serie"><img src="assets/icons/icon-192.png" alt="Gormiti"></button>
       <div class="title-wrap">
         <div class="eyebrow">Gormiti Checklist</div>
         <h1>${series ? escapeHTML(series.name) : 'Le tue serie'}</h1>
@@ -54,7 +60,7 @@
     const seriesCards = DATA.series.map(series => {
       const s = seriesStats(series); const pComplete = pct(s.complete, s.total);
       return `<button class="series-card" data-action="open-series" data-series="${series.id}">
-        <div class="series-header"><span>${series.tribeCount} popoli • ${series.totalCharacters} personaggi</span><h3>${escapeHTML(series.name)}</h3></div>
+        <div class="series-header" style="background:linear-gradient(135deg, ${series.accent || '#c84728'}, #d68918)"><span>${series.tribeCount} popoli • ${series.totalCharacters} personaggi</span><h3>${escapeHTML(series.name)}</h3></div>
         <div class="stats-row">
           <div class="stat"><b>${s.figures}/${s.total}</b><span>Personaggi</span></div>
           <div class="stat"><b>${s.cards}/${s.total}</b><span>Carte</span></div>
@@ -67,7 +73,7 @@
       </button>`;
     }).join('');
     app.innerHTML = `${topbar(null)}<main class="screen">
-      <section class="hero"><h2>Elenco serie</h2><p>Scegli una serie per aprire la checklist. La prima versione contiene Final Evolution; la struttura è già pronta per aggiungere altre serie in seguito.</p></section>
+      <section class="hero"><h2>Elenco serie</h2><p>Scegli una serie per aprire la checklist. Ogni scheda ha due spunte separate: una per il personaggio e una per la carta.</p></section>
       <section class="series-grid">${seriesCards}</section>
       <p class="footer-note">Checklist non ufficiale, pensata per uso personale e collezionistico. Le spunte restano salvate in questo browser.</p>
     </main>${modal()}<div class="toast"></div>`;
@@ -85,7 +91,7 @@
       const tCards = tribe.characters.filter(c => itemState(c.id).card).length;
       const cards = visibleChars.map(c => renderCard(c)).join('');
       return `<section class="tribe-section" id="${tribe.id}">
-        <div class="tribe-head" style="background:${tribe.color}"><div><h2>${escapeHTML(tribe.name)}</h2><p>${tribe.characters.length} personaggi • pagina ${tribe.page} del PDF</p></div><div class="tribe-progress">${tFigures}/${tribe.characters.length} P · ${tCards}/${tribe.characters.length} C</div></div>
+        <div class="tribe-head" style="background:${tribe.color}"><div><h2>${escapeHTML(tribe.name)}</h2><p>${tribe.characters.length} personaggi</p></div><div class="tribe-progress">${tFigures}/${tribe.characters.length} P · ${tCards}/${tribe.characters.length} C</div></div>
         <div class="cards-grid">${cards || '<div class="empty-state">Nessun Gormito corrisponde al filtro selezionato.</div>'}</div>
       </section>`;
     }).join('');
@@ -137,11 +143,11 @@
   function modal(){
     return `<div class="modal-backdrop" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
       <div class="modal"><h2 id="helpTitle">Come usarla sul cellulare</h2>
-      <p>La checklist funziona nel browser e salva le spunte sul dispositivo. Per installarla come app serve aprirla da un indirizzo web sicuro, poi aggiungerla alla schermata Home.</p>
+      <p>La checklist funziona nel browser e salva le spunte sul dispositivo. Per installarla come app serve aprirla dal link GitHub Pages, poi aggiungerla alla schermata Home.</p>
       <ol>
-        <li>Carica la cartella dell'app su un hosting statico oppure aprila sul tuo computer per provarla.</li>
-        <li>Dal cellulare apri il link della pagina <strong>index.html</strong>.</li>
-        <li>Su iPhone: pulsante Condividi → <strong>Aggiungi a Home</strong>. Su Android/Chrome: menu ⋮ → <strong>Aggiungi a schermata Home</strong> o <strong>Installa app</strong>.</li>
+        <li>Carica o aggiorna i file sul tuo repository GitHub.</li>
+        <li>Apri il link GitHub Pages dal cellulare.</li>
+        <li>Su iPhone: Condividi → <strong>Aggiungi a Home</strong>. Su Android/Chrome: menu ⋮ → <strong>Aggiungi a schermata Home</strong> o <strong>Installa app</strong>.</li>
       </ol>
       <p>Usa “Esporta backup” ogni tanto: crea un file con tutte le spunte, utile se cambi telefono o browser.</p>
       <div class="modal-actions"><button class="primary-btn" data-action="close-help">Ho capito</button></div>
@@ -166,7 +172,6 @@
   app.addEventListener('input', ev => {
     if(ev.target.dataset.action === 'search'){
       view.query = ev.target.value;
-      // Re-render after a small delay to keep typing responsive.
       clearTimeout(window.__searchTimer); window.__searchTimer = setTimeout(render, 120);
     }
   });
@@ -185,7 +190,7 @@
   });
 
   function exportBackup(){
-    const payload = { app:'Gormiti Checklist', version:1, exportedAt:new Date().toISOString(), state };
+    const payload = { app:'Gormiti Checklist', version:3, exportedAt:new Date().toISOString(), state };
     const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a'); a.href=url; a.download='gormiti-checklist-backup.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);

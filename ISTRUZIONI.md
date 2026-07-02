@@ -1,13 +1,24 @@
-# Gormiti Checklist - versione leggera per GitHub
+# Gormiti Checklist
 
-Questa versione contiene pochissimi file, pensata per evitare l'errore GitHub “troppi file da caricare”.
+Versione aggiornata con le serie caricate da PDF:
 
-Carica su GitHub questi file scompattati:
-- index.html
-- manifest.webmanifest
-- icon-192.png
-- icon-512.png
-- service-worker.js
-- ISTRUZIONI.md
+- Prima Serie
+- Seconda Serie
+- Mystica
+- Atomic
+- Terza Serie
+- Mythos
+- Energheia
+- Final Evolution
 
-Non caricare lo ZIP direttamente.
+Ogni Gormito ha due spunte: Personaggio e Carta.
+
+## Aggiornamento su GitHub Pages
+
+1. Scompatta questo ZIP.
+2. Nel repository GitHub, vai su **Add file → Upload files**.
+3. Trascina dentro tutti i file e le cartelle estratte, sostituendo quelli vecchi.
+4. Clicca **Commit changes**.
+5. Dopo qualche minuto GitHub Pages aggiornerà l'app.
+
+Se sul cellulare vedi ancora la vecchia versione, chiudi e riapri l'app. Se necessario rimuovila dalla schermata Home e aggiungila di nuovo.
