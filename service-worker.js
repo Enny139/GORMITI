@@ -1,109 +1,23 @@
-const CACHE_NAME = 'gormiti-checklist-v1';
-const ASSETS = [
-  "./",
-  "./index.html",
-  "./styles.css",
-  "./app.js",
-  "./data.js",
-  "./manifest.webmanifest",
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png",
-  "./assets/images/final-evolution/diamante-01-antico-thorg-il-signore-del-diamante.webp",
-  "./assets/images/final-evolution/diamante-02-rock-il-superbo.webp",
-  "./assets/images/final-evolution/diamante-03-tormentoso-sabis.webp",
-  "./assets/images/final-evolution/diamante-04-opale-nero-il-misterioso.webp",
-  "./assets/images/final-evolution/diamante-05-irpido-roccioso.webp",
-  "./assets/images/final-evolution/diamante-06-fossil-lantico-urlante.webp",
-  "./assets/images/final-evolution/foresta-infuocata-01-grandalbero-il-signore-della-foresta-infuocata.webp",
-  "./assets/images/final-evolution/foresta-infuocata-02-battiquercia-lirascibile.webp",
-  "./assets/images/final-evolution/foresta-infuocata-03-paludis-il-crudele.webp",
-  "./assets/images/final-evolution/foresta-infuocata-04-muschiantico.webp",
-  "./assets/images/final-evolution/foresta-infuocata-05-ramartiglio.webp",
-  "./assets/images/final-evolution/foresta-infuocata-06-magitronco-lo-stregone.webp",
-  "./assets/images/final-evolution/ghiaccio-01-nobilmantis-il-signore-del-ghiaccio.webp",
-  "./assets/images/final-evolution/ghiaccio-02-linguacida-lo-stritolatore-dei-mari.webp",
-  "./assets/images/final-evolution/ghiaccio-03-imprevedibile-silente.webp",
-  "./assets/images/final-evolution/ghiaccio-04-narvalion-il-testardo.webp",
-  "./assets/images/final-evolution/ghiaccio-05-squalis-il-martello-dei-mari.webp",
-  "./assets/images/final-evolution/ghiaccio-06-tentaclos-limmobile-predatore.webp",
-  "./assets/images/final-evolution/fossili-01-devilfenix-il-signore-dei-fossili.webp",
-  "./assets/images/final-evolution/fossili-02-mistica-falena.webp",
-  "./assets/images/final-evolution/fossili-03-beccoduro-il-picchiatore.webp",
-  "./assets/images/final-evolution/fossili-04-dragon-linceneritore.webp",
-  "./assets/images/final-evolution/fossili-05-crudelion-il-maledetto.webp",
-  "./assets/images/final-evolution/fossili-06-magufo-lo-stregone.webp",
-  "./assets/images/final-evolution/metallo-01-armageddon-il-signore-del-metallo.webp",
-  "./assets/images/final-evolution/metallo-02-navus-il-cinico.webp",
-  "./assets/images/final-evolution/metallo-03-skorpios-il-malvagio-pungitore.webp",
-  "./assets/images/final-evolution/metallo-04-forgius-martello-di-fuoco.webp",
-  "./assets/images/final-evolution/metallo-05-sentinel-il-guardiano-lavico.webp",
-  "./assets/images/final-evolution/metallo-06-brags-il-tristo-mietitore.webp",
-  "./assets/images/final-evolution/sole-01-sommo-luminescente-il-signore-del-sole.webp",
-  "./assets/images/final-evolution/sole-02-comet-fuoco-di-ghiaccio.webp",
-  "./assets/images/final-evolution/sole-03-accecante-guardiano.webp",
-  "./assets/images/final-evolution/sole-04-prismagon-il-guerriero-della-luce.webp",
-  "./assets/images/final-evolution/sole-05-electricante.webp",
-  "./assets/images/final-evolution/sole-06-solaris-il-fiammeggiante.webp",
-  "./assets/images/final-evolution/luna-01-obscurio-il-signore-della-luna.webp",
-  "./assets/images/final-evolution/luna-02-lunaris-loscuro-stregone.webp",
-  "./assets/images/final-evolution/luna-03-ombrassassina.webp",
-  "./assets/images/final-evolution/luna-04-pantanera-il-sergente-del-terrore.webp",
-  "./assets/images/final-evolution/luna-05-spiritonero-il-fantasma-dellombra.webp",
-  "./assets/images/final-evolution/luna-06-buconero-linghiottitore.webp",
-  "./assets/images/final-evolution/terra-01-gheos-il-signore-della-terra.webp",
-  "./assets/images/final-evolution/terra-02-trematerra.webp",
-  "./assets/images/final-evolution/terra-03-schienacciaio.webp",
-  "./assets/images/final-evolution/terra-04-furia-cieca.webp",
-  "./assets/images/final-evolution/terra-05-gravitus-il-forte.webp",
-  "./assets/images/final-evolution/terra-06-talps-lo-scavabuche.webp",
-  "./assets/images/final-evolution/terra-07-scovanascondigli.webp",
-  "./assets/images/final-evolution/foresta-01-tasarau-il-signore-della-foresta.webp",
-  "./assets/images/final-evolution/foresta-02-mimeticus-il-veloce.webp",
-  "./assets/images/final-evolution/foresta-03-saggio-distruttore.webp",
-  "./assets/images/final-evolution/foresta-04-florus-lavvelenatore.webp",
-  "./assets/images/final-evolution/foresta-05-frusta-letale.webp",
-  "./assets/images/final-evolution/foresta-06-strapparami-il-furioso.webp",
-  "./assets/images/final-evolution/foresta-07-picchiatore.webp",
-  "./assets/images/final-evolution/mare-01-poivrons-il-signore-del-mare.webp",
-  "./assets/images/final-evolution/mare-02-medusantica.webp",
-  "./assets/images/final-evolution/mare-03-martello-il-predatore.webp",
-  "./assets/images/final-evolution/mare-04-mantra-limplacabile.webp",
-  "./assets/images/final-evolution/mare-05-tenaglia-il-terribile.webp",
-  "./assets/images/final-evolution/mare-06-grankios-il-vendicatore.webp",
-  "./assets/images/final-evolution/mare-07-delos-il-conte-dei-mari.webp",
-  "./assets/images/final-evolution/aria-01-noctis-il-signore-dellaria.webp",
-  "./assets/images/final-evolution/aria-02-magica-vedetta.webp",
-  "./assets/images/final-evolution/aria-03-pungolo-lo-sfuggente.webp",
-  "./assets/images/final-evolution/aria-04-aquila-solitaria.webp",
-  "./assets/images/final-evolution/aria-05-severo-guardiano.webp",
-  "./assets/images/final-evolution/aria-06-alos-lipnotizzatore.webp",
-  "./assets/images/final-evolution/aria-07-becco-dacciaio.webp",
-  "./assets/images/final-evolution/magma-01-magmion-il-signore-del-magma.webp",
-  "./assets/images/final-evolution/magma-02-electricon.webp",
-  "./assets/images/final-evolution/magma-03-strappapensieri.webp",
-  "./assets/images/final-evolution/magma-04-maglio-infuocato.webp",
-  "./assets/images/final-evolution/magma-05-insecticus.webp",
-  "./assets/images/final-evolution/magma-06-aracno-il-crudele.webp",
-  "./assets/images/final-evolution/magma-07-guardiano-urlante.webp",
-  "./assets/images/final-evolution/lava-01-lavion-il-signore-della-lava.webp",
-  "./assets/images/final-evolution/lava-02-anonimo-multiforme.webp",
-  "./assets/images/final-evolution/lava-03-mastodontico.webp",
-  "./assets/images/final-evolution/lava-04-sparafuoco.webp",
-  "./assets/images/final-evolution/lava-05-malvagius-il-terribile.webp",
-  "./assets/images/final-evolution/lava-06-lavor-il-potente.webp",
-  "./assets/images/final-evolution/lava-07-angelo-infuocato.webp"
-];
-
+const CACHE_NAME = 'gormiti-checklist-v3-light';
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
+  event.waitUntil(self.skipWaiting());
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
 });
 self.addEventListener('fetch', event => {
-  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-    const copy = response.clone();
-    caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-    return response;
-  }).catch(() => caches.match('./index.html'))));
+  if (event.request.method !== 'GET') return;
+  event.respondWith(
+    fetch(event.request)
+      .then(response => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+        return response;
+      })
+      .catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html')))
+  );
 });
