@@ -14,3 +14,8 @@ Carica questi file nella radice del repository GitHub e fai commit/push.
 - Ogni carta può essere scelta al massimo una volta.
 - Le carte selezionate sono visibili subito nella sezione Il tuo mazzo.
 - Le carte senza valori verificati usano valori prototipo chiaramente indicati.
+
+
+## Versione 7
+- Le carte del round restano coperte fino alla scelta dell’arte.
+- Dopo la scelta, le carte vengono rivelate con animazione e il round viene risolto automaticamente.
