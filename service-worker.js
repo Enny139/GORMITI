@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v4-battle-light';
+const CACHE_NAME = 'gormiti-checklist-v6-battle-deck-light';
 self.addEventListener('install', event => {
   event.waitUntil(self.skipWaiting());
 });
