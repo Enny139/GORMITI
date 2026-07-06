@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v7-battle-reveal';
+const CACHE_NAME = 'gormiti-checklist-v9-card-back';
 self.addEventListener('install', event => {
   event.waitUntil(self.skipWaiting());
 });

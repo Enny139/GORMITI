@@ -1,21 +1,9 @@
-# Gormiti Checklist v5 - Battle Cards con scelta mazzo
+# Gormiti Checklist - versione v9 Card Back
 
-Novità:
-- Il pulsante Gioca resta visibile anche su cellulare.
-- Prima della partita Battle Cards ora c'è una fase di scelta mazzo.
-- Il mazzo deve contenere esattamente 30 carte.
-- Per ora il pool contiene le carte verificate/da confermare già inserite nel prototipo.
+Questa versione mantiene le funzioni della v8 e aggiunge il nuovo retro Battle Cards nel simulatore:
 
-Carica questi file nella radice del repository GitHub e fai commit/push.
+- le carte coperte mostrano il retro Gormiti ricreato senza logo GIG;
+- il retro è incorporato direttamente in `index.html`, quindi non serve caricare file aggiuntivi;
+- restano attivi salvataggio mazzi, info carta, CPU automatica, carte usate opache e animazioni di conquista.
 
-
-## Versione v6
-- Aggiunte tutte le 140 Battle Cards nel deck builder.
-- Ogni carta può essere scelta al massimo una volta.
-- Le carte selezionate sono visibili subito nella sezione Il tuo mazzo.
-- Le carte senza valori verificati usano valori prototipo chiaramente indicati.
-
-
-## Versione 7
-- Le carte del round restano coperte fino alla scelta dell’arte.
-- Dopo la scelta, le carte vengono rivelate con animazione e il round viene risolto automaticamente.
+Per aggiornare GitHub Pages, sostituisci i 6 file nella radice del repository e poi fai Commit e Push da GitHub Desktop.
