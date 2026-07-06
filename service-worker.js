@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v11-home-pause';
+const CACHE_NAME = 'gormiti-v12-modes-rules';
 self.addEventListener('install', event => {
   event.waitUntil(self.skipWaiting());
 });
