@@ -1,12 +1,19 @@
-# Gormiti Checklist - v11
+# Gormiti Checklist App - v14 Metal/Plastic layout
 
-Versione con schermata iniziale personalizzabile, tasti MANCOLISTE/GIOCA sempre visibili, salvataggio partita interrotta, resa, e anteprime serie più riconoscibili.
+Versione con mancoliste, Battle Cards, Metal Cards e Plastic Cards.
 
-Carica nella root del repository i 6 file: `index.html`, `manifest.webmanifest`, `service-worker.js`, `icon-192.png`, `icon-512.png`, `ISTRUZIONI.md`.
+## Aggiornamenti v14
+- Campo Metal/Plastic ridisegnato con giocatore e CPU uno di fronte all'altro.
+- Carte Metal/Plastic visibili sul terreno con immagine del Gormito.
+- Inserito esempio reale Kolossus Metal Card con lato Attacco e lato Difesa forniti dall'utente.
+- Selezione attaccante/bersaglio anche toccando le carte in prima linea.
+- Dorso Battle Cards mantenuto per le carte coperte.
 
-
-Versione v12: aggiunti “Come si gioca?”, Metal Cards, Plastic Cards e ripristinato il dorso delle carte coperte.
-
-
-## Versione v13
-Aggiunte le mancoliste dedicate alle carte da gioco: Battle Cards, Metal Cards e Plastic Cards.
+## Installazione GitHub Pages
+Carica questi file nella root del repository:
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- icon-192.png
+- icon-512.png
+- ISTRUZIONI.md
