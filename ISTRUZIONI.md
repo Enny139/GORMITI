@@ -1,9 +1,11 @@
-# Gormiti Checklist - versione v9 Card Back
+# Gormiti Checklist - versione v10 Stile carte
 
-Questa versione mantiene le funzioni della v8 e aggiunge il nuovo retro Battle Cards nel simulatore:
+Questa versione aggiorna il simulatore Battle Cards:
 
-- le carte coperte mostrano il retro Gormiti ricreato senza logo GIG;
-- il retro è incorporato direttamente in `index.html`, quindi non serve caricare file aggiuntivi;
-- restano attivi salvataggio mazzi, info carta, CPU automatica, carte usate opache e animazioni di conquista.
+- le carte hanno una colorazione tenue basata sul popolo;
+- il nome del Gormito è centrato nella carta;
+- sono state rimosse le etichette/frasi sui valori prototipo;
+- il pulsante “Chiudi” nella schermata Info funziona correttamente;
+- resta il retro Battle Cards personalizzato, incorporato direttamente in `index.html`.
 
 Per aggiornare GitHub Pages, sostituisci i 6 file nella radice del repository e poi fai Commit e Push da GitHub Desktop.

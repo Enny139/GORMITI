@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v9-card-back';
+const CACHE_NAME = 'gormiti-checklist-v10-card-style';
 self.addEventListener('install', event => {
   event.waitUntil(self.skipWaiting());
 });
