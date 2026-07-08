@@ -1,5 +1,12 @@
-# Gormiti Checklist v15.1
+# Gormiti Checklist v17
 
-Correzione schermata bianca della v15 e mantenimento della mancolista Metal Cards con varianti raggruppate.
+Aggiorna la mancolista Metal Cards usando l'ordine dell'album delle 192 Metalcards.
+
+La lista Metal Cards è divisa in sezioni:
+- Mythos
+- Energheia
+- Gold Cards
+
+Quando lo stesso personaggio ha due carte consecutive, compare una sola scheda con due spunte: Normale e Zoomata. Le Gold Cards hanno la spunta Dorata.
 
 Carica questi 6 file nella radice del repository GitHub Pages.
