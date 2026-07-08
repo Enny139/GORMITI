@@ -1,12 +1,10 @@
-# Gormiti Checklist v17
+# Gormiti Checklist App - v18
 
-Aggiorna la mancolista Metal Cards usando l'ordine dell'album delle 192 Metalcards.
+Versione aggiornata con mancoliste Battle Cards e Metal Cards in ordine album.
 
-La lista Metal Cards è divisa in sezioni:
-- Mythos
-- Energheia
-- Gold Cards
+Modifiche v18:
+- nelle schede Metal Cards non compare più il riferimento al popolo sotto il personaggio;
+- nelle schede Plastic Cards non compare più la dicitura “Plastic Card” né il popolo;
+- resta visibile solo l’informazione utile della variante, quando serve.
 
-Quando lo stesso personaggio ha due carte consecutive, compare una sola scheda con due spunte: Normale e Zoomata. Le Gold Cards hanno la spunta Dorata.
-
-Carica questi 6 file nella radice del repository GitHub Pages.
+Carica questi 6 file nella root del repository GitHub Pages e fai Commit + Push.
