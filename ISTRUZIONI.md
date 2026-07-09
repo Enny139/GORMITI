@@ -1,10 +1,15 @@
-# Gormiti Checklist App - v18
+# Gormiti Checklist App — v19
 
-Versione aggiornata con mancoliste Battle Cards e Metal Cards in ordine album.
+Versione aggiornata con mancolista Plastic Cards in ordine album ufficiale, raggruppamento delle doppie carte per personaggio e card pulite con sola frazione di completamento.
 
-Modifiche v18:
-- nelle schede Metal Cards non compare più il riferimento al popolo sotto il personaggio;
-- nelle schede Plastic Cards non compare più la dicitura “Plastic Card” né il popolo;
-- resta visibile solo l’informazione utile della variante, quando serve.
+## File da caricare su GitHub
+Sostituisci nella root del repository questi 6 file:
 
-Carica questi 6 file nella root del repository GitHub Pages e fai Commit + Push.
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- icon-192.png
+- icon-512.png
+- ISTRUZIONI.md
+
+Poi fai commit e push con GitHub Desktop.
