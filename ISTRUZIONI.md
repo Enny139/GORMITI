@@ -13,3 +13,6 @@ Sostituisci nella root del repository questi 6 file:
 - ISTRUZIONI.md
 
 Poi fai commit e push con GitHub Desktop.
+
+
+Versione v20: etichette Normale/Speciale su Metal e Plastic, e fallback immagini rinforzato su tutte le mancoliste.
