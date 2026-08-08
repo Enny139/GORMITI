@@ -19,3 +19,6 @@ Versione v20: etichette Normale/Speciale su Metal e Plastic, e fallback immagini
 
 
 Versione v21: aggiunge sezione Speciale con Gormiti Magazine, Carte fluo, Mini Gormiti e bordo oro al 100%.
+
+
+Versione v22: anteprime personalizzate per Gormiti Magazine, Carte fluo, Mini Gormiti e liste Battle/Metal/Plast; miniature magazine con card dedicata.
