@@ -16,3 +16,6 @@ Poi fai commit e push con GitHub Desktop.
 
 
 Versione v20: etichette Normale/Speciale su Metal e Plastic, e fallback immagini rinforzato su tutte le mancoliste.
+
+
+Versione v21: aggiunge sezione Speciale con Gormiti Magazine, Carte fluo, Mini Gormiti e bordo oro al 100%.
