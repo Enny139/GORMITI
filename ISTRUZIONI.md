@@ -22,3 +22,6 @@ Versione v21: aggiunge sezione Speciale con Gormiti Magazine, Carte fluo, Mini G
 
 
 Versione v22: anteprime personalizzate per Gormiti Magazine, Carte fluo, Mini Gormiti e liste Battle/Metal/Plast; miniature magazine con card dedicata.
+
+
+Versione v23: anteprime reali per Speciale (Magazine, Fluo, Mini) e miniature fluo con sfondo più neutro.
