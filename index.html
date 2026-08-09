@@ -1088,26 +1088,30 @@ button,input{font:inherit}button{cursor:pointer}.app-shell{min-height:100svh}
         checks:[{id:`sp-mini-${normalizeName(seriesLabel)}-${String(order).padStart(3,'0')}-${normalizeName(displayName)}-personaggio`, type:'figure', label:'Personaggio'}]
       };
     }
+    const terzaMini = [
+      {tribe:'Popolo della Terra', names:['Antico Thorg il Signore della Terra','Rock il Superbo', "Fossil l'Antico Urlante"]},
+      {tribe:'Popolo della Foresta', names:['Grandalbero il Signore della Foresta','Muschiantico','Ramartiglio']},
+      {tribe:'Popolo del Mare', names:['Nobilmantis il Signore del Mare','Narvalion il Testardo', "Tentaclos l'Immobile Predatore"]},
+      {tribe:"Popolo dell'Aria", names:["Devilfenix il Signore dell'Aria",'Mistica Falena','Crudelion il Maledetto']},
+      {tribe:'Popolo del Vulcano', names:['Armageddon il Signore del Vulcano','Forgius Martello di Fuoco','Brags il Tristo Mietitore']},
+      {tribe:'Popolo della Luce', names:['Sommo Luminescente il Signore della Luce','Solaris il Fiammeggiante','Electricante']},
+      {tribe:'Popolo delle Tenebre', names:['Obscurio il Signore delle Tenebre',"Spiritonero il Fantasma dell'Ombra", "Buconero l'Inghiottitore"]}
+    ];
+    const mythosMini = [
+      {tribe:'Popolo della Terra', names:['Antico Thorg il Signore della Terra','Irpido Roccioso', "Fossil l'Antico Urlante"]},
+      {tribe:'Popolo della Foresta', names:['Grandalbero il Signore della Foresta', "Battiquercia l'Irascibile", 'Paludis il Crudele']},
+      {tribe:'Popolo del Mare', names:['Nobilmantis il Signore del Mare','Linguacida lo Stritolatore dei Mari','Squalis il Martello dei Mari']},
+      {tribe:"Popolo dell'Aria", names:["Devilfenix il Signore dell'Aria", "Dragon l'Inceneritore", 'Crudelion il Maledetto']},
+      {tribe:'Popolo del Vulcano', names:['Armageddon il Signore del Vulcano','Skorpios il Malvagio Pungitore','Forgius Martello di Fuoco']},
+      {tribe:'Popolo della Luce', names:['Sommo Luminescente il Signore della Luce','Prismagon il Guerriero della Luce','Solaris il Fiammeggiante']},
+      {tribe:'Popolo delle Tenebre', names:['Obscurio il Signore delle Tenebre','Pantanera il Sergente del Terrore',"Spiritonero il Fantasma dell'Ombra"]}
+    ];
     const miniItems = [];
     let miniOrder = 1;
     secondaMini.forEach(block => block.names.forEach(name => miniItems.push(miniItem('Seconda Serie', `Seconda Serie · ${block.tribe}`, name, miniOrder++, 'Seconda Serie'))));
     secondaMini.forEach(block => block.names.forEach(name => miniItems.push(miniItem('Glow in the Dark', `Glow in the Dark · ${block.tribe}`, name, miniOrder++, 'Seconda Serie'))));
-    ['Terza Serie','Mythos'].forEach(seriesName => {
-      const series = DATA.series.find(s => s.name === seriesName);
-      if(!series) return;
-      series.tribes.forEach(tribe => tribe.characters.forEach(character => {
-        miniItems.push({
-          id:`sp-mini-${normalizeName(seriesName)}-${String(miniOrder).padStart(3,'0')}-${normalizeName(character.name)}`,
-          order:miniOrder++,
-          name:character.name,
-          group:`${seriesName} · ${tribe.name}`,
-          detail:seriesName,
-          color:tribe.color || series.accent || '#657276',
-          image:character.image || specialImage(character.name),
-          checks:[{id:`sp-mini-${normalizeName(seriesName)}-${String(miniOrder-1).padStart(3,'0')}-${normalizeName(character.name)}-personaggio`, type:'figure', label:'Personaggio'}]
-        });
-      }));
-    });
+    terzaMini.forEach(block => block.names.forEach(name => miniItems.push(miniItem('Terza Serie', `Terza Serie · ${block.tribe}`, name, miniOrder++, 'Terza Serie'))));
+    mythosMini.forEach(block => block.names.forEach(name => miniItems.push(miniItem('Mythos', `Mythos · ${block.tribe}`, name, miniOrder++, 'Mythos'))));
 
     return [
       {id:'special-magazine', name:'Gormiti Magazine', subtitle:'Esclusivi Magazine, con personaggio e carta quando prevista', accent:'#9b5a2e', image:magazineItems[0]?.image || 'icon-512.png', items:magazineItems},
