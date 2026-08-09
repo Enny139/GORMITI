@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v24-1-mini-series-fix';
+const CACHE_NAME = 'gormiti-checklist-v25-mini-fandom-fix';
 const CORE_ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)).then(() => self.skipWaiting()));

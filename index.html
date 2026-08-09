@@ -111,7 +111,7 @@ button,input{font:inherit}button{cursor:pointer}.app-shell{min-height:100svh}
 @media(max-width:600px){.line-row{gap:.32rem}.line-card-face{min-height:122px;border-radius:13px}.line-card-name{font-size:.62rem}.line-card-tribe{display:none}.line-card-top{font-size:.48rem}.line-stat-strip{margin:.15rem .2rem .25rem}.line-stat-strip span{font-size:.49rem}.line-stat-strip i{font-size:.38rem}.line-side{padding:.6rem}.line-current-clash{grid-template-columns:1fr;}.line-current-clash .mini-vs{text-align:center}.line-card-art{margin:.25rem .25rem .12rem}.line-card.is-empty{min-height:90px}}
 
 
-/* v23: anteprime speciali sostituite con immagini reali fornite dall'utente; fluo con sfondo più neutro */
+/* v25: Mini Gormiti corretti secondo elenco Fandom; Terza Serie e Mythos allineate */
 .game-card-variant-row{display:grid;gap:.42rem;margin-top:.1rem}
 .game-card-variant-row .check-button{justify-content:flex-start;min-height:40px;padding:.46rem .52rem;font-size:.82rem}
 .game-card-variant-row .check-button small{margin-left:auto;color:var(--muted);font-size:.68rem;font-weight:850}
@@ -1088,24 +1088,17 @@ button,input{font:inherit}button{cursor:pointer}.app-shell{min-height:100svh}
         checks:[{id:`sp-mini-${normalizeName(seriesLabel)}-${String(order).padStart(3,'0')}-${normalizeName(displayName)}-personaggio`, type:'figure', label:'Personaggio'}]
       };
     }
-    const terzaMini = [
-      {tribe:'Popolo della Terra', names:['Antico Thorg il Signore della Terra','Rock il Superbo', "Fossil l'Antico Urlante"]},
-      {tribe:'Popolo della Foresta', names:['Grandalbero il Signore della Foresta','Muschiantico','Ramartiglio']},
-      {tribe:'Popolo del Mare', names:['Nobilmantis il Signore del Mare','Narvalion il Testardo', "Tentaclos l'Immobile Predatore"]},
-      {tribe:"Popolo dell'Aria", names:["Devilfenix il Signore dell'Aria",'Mistica Falena','Crudelion il Maledetto']},
+    const miniTerzaMythosRows = [
+      {tribe:'Popolo della Terra', names:['Antico Thorg il Signore della Terra','Tormentoso Sabis','Irpido Roccioso']},
+      {tribe:'Popolo della Foresta', names:['Grandalbero il Signore della Foresta','Muschiantico','Magitronco lo Stregone']},
+      {tribe:'Popolo del Mare', names:['Nobilmantis il Signore del Mare','Narvalion il Testardo','Squalis il Martello dei Mari']},
+      {tribe:"Popolo dell'Aria", names:["Devilfenix il Signore dell'Aria", "Dragon l'Inceneritore", 'Magufo lo Stregone']},
       {tribe:'Popolo del Vulcano', names:['Armageddon il Signore del Vulcano','Forgius Martello di Fuoco','Brags il Tristo Mietitore']},
-      {tribe:'Popolo della Luce', names:['Sommo Luminescente il Signore della Luce','Solaris il Fiammeggiante','Electricante']},
-      {tribe:'Popolo delle Tenebre', names:['Obscurio il Signore delle Tenebre',"Spiritonero il Fantasma dell'Ombra", "Buconero l'Inghiottitore"]}
+      {tribe:'Popolo della Luce', names:['Sommo Luminescente il Signore della Luce','Comet Fuoco di Ghiaccio','Solaris il Fiammeggiante']},
+      {tribe:'Popolo delle Tenebre', names:['Obscurio il Signore delle Tenebre','Ombrassassina','Pantanera il Sergente del Terrore']}
     ];
-    const mythosMini = [
-      {tribe:'Popolo della Terra', names:['Antico Thorg il Signore della Terra','Irpido Roccioso', "Fossil l'Antico Urlante"]},
-      {tribe:'Popolo della Foresta', names:['Grandalbero il Signore della Foresta', "Battiquercia l'Irascibile", 'Paludis il Crudele']},
-      {tribe:'Popolo del Mare', names:['Nobilmantis il Signore del Mare','Linguacida lo Stritolatore dei Mari','Squalis il Martello dei Mari']},
-      {tribe:"Popolo dell'Aria", names:["Devilfenix il Signore dell'Aria", "Dragon l'Inceneritore", 'Crudelion il Maledetto']},
-      {tribe:'Popolo del Vulcano', names:['Armageddon il Signore del Vulcano','Skorpios il Malvagio Pungitore','Forgius Martello di Fuoco']},
-      {tribe:'Popolo della Luce', names:['Sommo Luminescente il Signore della Luce','Prismagon il Guerriero della Luce','Solaris il Fiammeggiante']},
-      {tribe:'Popolo delle Tenebre', names:['Obscurio il Signore delle Tenebre','Pantanera il Sergente del Terrore',"Spiritonero il Fantasma dell'Ombra"]}
-    ];
+    const terzaMini = miniTerzaMythosRows;
+    const mythosMini = miniTerzaMythosRows;
     const miniItems = [];
     let miniOrder = 1;
     secondaMini.forEach(block => block.names.forEach(name => miniItems.push(miniItem('Seconda Serie', `Seconda Serie · ${block.tribe}`, name, miniOrder++, 'Seconda Serie'))));
