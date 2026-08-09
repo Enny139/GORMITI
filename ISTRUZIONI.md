@@ -28,3 +28,5 @@ Versione v23: anteprime reali per Speciale (Magazine, Fluo, Mini) e miniature fl
 
 
 Versione v24: corretta la mancolista Mini Gormiti. Restano solo 4 serie fino a Final Evolution (Seconda Serie, Glow in the Dark, Terza Serie, Mythos) e Terza Serie/Mythos sono stati ridotti ai personaggi mostrati nei riferimenti inviati.
+
+Versione v24.1: pacchetto corretto con tutti e 6 i file, inclusi manifest e service-worker con cache aggiornata.
