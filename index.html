@@ -1231,6 +1231,85 @@ button,input{font:inherit}button{cursor:pointer}.app-shell{min-height:100svh}
     }
   }
   applyCustomPreviewImages();
+
+  const NEW_SERIES_IDS = new Set(['cartoon','elemental-fusion','eclissi-suprema','titanium','neorganic','morphogenesis','luxion']);
+  function svgSafe(text){
+    return String(text ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+  function keywordHit(text, words){
+    const normalized = String(text || '').toLowerCase();
+    return words.some(word => normalized.includes(word));
+  }
+  function tribeSilhouette(tribeName, tone){
+    const fill = tone || 'rgba(255,255,255,.92)';
+    if(keywordHit(tribeName, ['terra','earth','rocc','stone','rock'])){
+      return `<g fill="${fill}"><circle cx="320" cy="154" r="42"/><rect x="272" y="194" width="96" height="96" rx="24"/><path d="M248 288h144l34 92h-44l-20-58h-84l-20 58h-44z"/><rect x="224" y="216" width="40" height="104" rx="16" transform="rotate(10 244 268)"/><rect x="376" y="216" width="40" height="104" rx="16" transform="rotate(-10 396 268)"/></g>`;
+    }
+    if(keywordHit(tribeName, ['foresta','forest','bosco','wood','nature','natura'])){
+      return `<g fill="${fill}"><circle cx="320" cy="154" r="40"/><path d="M288 194q32-28 64 0v104h-64z"/><path d="M320 116l30 48-30 10-30-10z"/><path d="M238 232q48-32 70 4l-20 30q-38-12-70 8z"/><path d="M402 232q-48-32-70 4l20 30q38-12 70 8z"/><path d="M278 294h84l28 92h-42l-18-56h-20l-18 56h-42z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['mare','sea','water','oce','ice','ghiaccio','glac','frost'])){
+      return `<g fill="${fill}"><circle cx="320" cy="150" r="38"/><path d="M280 192q40-22 80 0v92q0 48-40 82-40-34-40-82z"/><path d="M246 234q42-46 76-10l-28 26q-18-16-48 18z"/><path d="M394 234q-42-46-76-10l28 26q18-16 48 18z"/><path d="M282 296h76l18 74h-38l-12-42-12 42h-38z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['aria','sky','wind','air','storm','tuono','lightning'])){
+      return `<g fill="${fill}"><circle cx="320" cy="148" r="38"/><path d="M286 188q34-26 68 0v102h-68z"/><path d="M214 214q58-44 102-8l-28 34q-30-12-74 8z"/><path d="M426 214q-58-44-102-8l28 34q30-12 74 8z"/><path d="M286 292h68l26 88h-40l-12-44-12 44h-40z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['vulcano','fire','fuoco','magma','lava'])){
+      return `<g fill="${fill}"><circle cx="320" cy="154" r="38"/><path d="M288 190q32-22 64 0v102h-64z"/><path d="M288 130l-24-36 34 18 22-24 22 24 34-18-24 36z"/><path d="M250 232q42-34 72 4l-20 28q-30-10-68 16z"/><path d="M390 232q-42-34-72 4l20 28q30-10 68 16z"/><path d="M278 294h84l26 90h-40l-18-52h-20l-18 52h-40z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['male','dark','ombra','shadow','evil','tenebra'])){
+      return `<g fill="${fill}"><circle cx="320" cy="154" r="36"/><path d="M286 190q34-24 68 0v104h-68z"/><path d="M292 116l-18-34 30 18 16-24 16 24 30-18-18 34z"/><path d="M244 230l40-18 18 34-58 18z"/><path d="M396 230l-40-18-18 34 58 18z"/><path d="M278 294h84l32 96h-44l-18-56h-24l-18 56h-44z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['luce','light','sun','solar','sole'])){
+      return `<g fill="${fill}"><circle cx="320" cy="140" r="26"/><circle cx="320" cy="154" r="40" fill="none" stroke="${fill}" stroke-width="14"/><path d="M286 198q34-22 68 0v98h-68z"/><path d="M248 230q42-30 72 4l-18 28q-28-8-68 12z"/><path d="M392 230q-42-30-72 4l18 28q28-8 68 12z"/><path d="M284 296h72l22 84h-38l-10-40-10 40h-38z"/></g>`;
+    }
+    if(keywordHit(tribeName, ['metal','acciaio','titan','iron','steel'])){
+      return `<g fill="${fill}"><circle cx="320" cy="150" r="36"/><rect x="284" y="188" width="72" height="104" rx="18"/><rect x="238" y="220" width="42" height="88" rx="14"/><rect x="360" y="220" width="42" height="88" rx="14"/><path d="M282 296h76l24 90h-40l-10-44h-24l-10 44h-40z"/></g>`;
+    }
+    return `<g fill="${fill}"><circle cx="320" cy="152" r="40"/><path d="M286 192q34-24 68 0v102h-68z"/><path d="M248 234q44-32 74 2l-20 30q-28-10-68 12z"/><path d="M392 234q-44-32-74 2l20 30q28-10 68 12z"/><path d="M280 294h80l24 88h-40l-12-46-12 46h-40z"/></g>`;
+  }
+  function newSeriesCharacterThumb(character, tribe, series){
+    const name = svgSafe(character.name);
+    const seriesName = svgSafe(series.name);
+    const tribeName = svgSafe(tribe.name);
+    const tribeColor = tribe.color || series.accent || '#6b5b4b';
+    const accent = tribeColor;
+    const matched = findImageByName(character.name);
+    const hasMatched = matched && matched !== 'icon-512.png';
+    const artBlock = hasMatched
+      ? `<rect x="176" y="66" width="288" height="250" rx="28" fill="rgba(255,255,255,.16)" stroke="rgba(255,255,255,.38)" stroke-width="4"/><image href="${matched}" x="176" y="66" width="288" height="250" preserveAspectRatio="xMidYMid contain"/>`
+      : tribeSilhouette(tribe.name, '#f8f4ea');
+    return svgDataUri(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${accent}"/><stop offset="100%" stop-color="#1e2329"/></linearGradient>
+        <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,.18)"/><stop offset="100%" stop-color="rgba(255,255,255,.06)"/></linearGradient>
+        <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.28"/></filter>
+      </defs>
+      <rect width="640" height="520" rx="34" fill="url(#bg)"/>
+      <rect x="28" y="28" width="584" height="464" rx="28" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.20)" stroke-width="3"/>
+      <text x="320" y="74" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="40" letter-spacing="4" fill="#f4d36d" stroke="#111" stroke-width="5">GORMITI</text>
+      <g filter="url(#shadow)">
+        <circle cx="320" cy="192" r="126" fill="rgba(255,255,255,.10)"/>
+        ${artBlock}
+      </g>
+      <rect x="76" y="356" width="488" height="102" rx="22" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.16)"/>
+      <text x="320" y="398" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="900" fill="#ffffff">${name}</text>
+      <text x="320" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#f5e9d2">${seriesName}</text>
+      <text x="320" y="455" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#efe5d4">${tribeName}</text>
+    </svg>`);
+  }
+  function applyNewSeriesCharacterImages(){
+    DATA.series.forEach(series => {
+      if(!NEW_SERIES_IDS.has(series.id)) return;
+      (series.tribes || []).forEach(tribe => {
+        (tribe.characters || []).forEach(character => {
+          character.image = newSeriesCharacterThumb(character, tribe, series);
+        });
+      });
+    });
+  }
+  applyNewSeriesCharacterImages();
+
   function specialCollectionById(id){ return SPECIAL_COLLECTIONS.find(list => list.id === id) || SPECIAL_COLLECTIONS[0]; }
   function specialItemCheckIds(item){ return (item.checks || []).map(check => ({id:check.id, type:check.type || 'card'})); }
   function specialCollectionStats(list){
