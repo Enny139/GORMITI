@@ -63,3 +63,6 @@ Versione v35: anteprima delle nuove serie impostata sul primo Gormito della seri
 
 
 Versione v40: ripristinate immagini dalla versione stabile precedente per evitare artefatti/corruzione; aggiornati i controlli speciali: Slime Orb solo Signori Titanium, Versione umana per Signori Elemental Fusion, Senza armatura per Signori Eclissi Suprema, Superpotere per Signori Neorganic.
+
+
+Versione v41: corretti i controlli speciali. Titanium: Slime Orb solo per i Signori del popolo (incluso Magmion, escluso Armageddon). Elemental Fusion: Versione umana solo per i Signori di Terra/Foresta/Mare/Aria; aggiunta Versione trasparente per Mutevole Sandis, Bu-Bamboo l'Urlante Solitario, Mollusco il Visionario, Freccialata la Protettrice e Furia Lavica la Testarda. Neorganic: Superpotere solo per i Signori di Terra/Foresta/Mare/Aria.

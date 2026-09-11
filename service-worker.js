@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v40-rollback-clean-specials';
+const CACHE_NAME = 'gormiti-checklist-v41-special-checks-fix';
 const CORE_ASSETS = [
   './',
   './index.html',
