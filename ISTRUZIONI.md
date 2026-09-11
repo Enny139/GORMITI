@@ -57,3 +57,6 @@ Versione v33: aggiunte le immagini corrette per la serie Neorganic dalle scherma
 
 
 Versione v34: aggiornate le immagini corrette per Morphogenesis e Luxion usando le schermate fandom fornite (i personaggi senza screenshot specifico, come alcuni Senza Popolo di Luxion, restano invariati).
+
+
+Versione v35: anteprima delle nuove serie impostata sul primo Gormito della serie; aggiunta spunta Slime Orb ai Signori Titanium che la prevedono, escluso Magmion.
