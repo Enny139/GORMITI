@@ -33,3 +33,6 @@ Versione v24.1: pacchetto corretto con tutti e 6 i file, inclusi manifest e serv
 
 
 Versione v25: corrette Terza Serie e Mythos dei Mini Gormiti secondo elenco Mini Gormiti su Gormiti Wiki Italia/Fandom.
+
+
+Versione v26: aggiunte alle MANCOLISTE le serie Cartoon, Elemental Fusion, Eclissi Suprema, Titanium, Neorganic, Morphogenesis e Luxion, con spunte Personaggio e Carta.
