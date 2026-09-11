@@ -36,3 +36,6 @@ Versione v25: corrette Terza Serie e Mythos dei Mini Gormiti secondo elenco Mini
 
 
 Versione v26: aggiunte alle MANCOLISTE le serie Cartoon, Elemental Fusion, Eclissi Suprema, Titanium, Neorganic, Morphogenesis e Luxion, con spunte Personaggio e Carta.
+
+
+Versione v28: aggiunte immagini visibili per i Gormiti delle nuove serie nelle mancoliste e anteprime serie che danno priorità all'immagine del personaggio.
