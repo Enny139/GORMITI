@@ -39,3 +39,21 @@ Versione v26: aggiunte alle MANCOLISTE le serie Cartoon, Elemental Fusion, Eclis
 
 
 Versione v28: aggiunte immagini visibili per i Gormiti delle nuove serie nelle mancoliste e anteprime serie che danno priorità all'immagine del personaggio.
+
+
+Versione v29: corrette le immagini della serie Cartoon usando i riferimenti inviati dall'utente dal sito Gormiti Fandom.
+
+
+Versione v30: corrette le immagini della serie Elemental Fusion usando i riferimenti inviati dall'utente.
+
+
+Versione v31: aggiunte le immagini corrette dei Gormiti della serie Eclissi Suprema.
+
+
+Versione v32: aggiunte le immagini corrette dei Gormiti della serie Titanium.
+
+
+Versione v33: aggiunte le immagini corrette per la serie Neorganic dalle schermate fandom fornite.
+
+
+Versione v34: aggiornate le immagini corrette per Morphogenesis e Luxion usando le schermate fandom fornite (i personaggi senza screenshot specifico, come alcuni Senza Popolo di Luxion, restano invariati).
