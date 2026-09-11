@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gormiti-checklist-v39-imagefix-cache-reset';
+const CACHE_NAME = 'gormiti-checklist-v40-rollback-clean-specials';
 const CORE_ASSETS = [
   './',
   './index.html',

@@ -62,4 +62,4 @@ Versione v34: aggiornate le immagini corrette per Morphogenesis e Luxion usando 
 Versione v35: anteprima delle nuove serie impostata sul primo Gormito della serie; aggiunta spunta Slime Orb ai Signori Titanium che la prevedono, escluso Magmion.
 
 
-Versione v39: ricreato pacchetto completo con manifest e service-worker nuovi. Tutte le immagini incorporate sono state ricodificate e verificate per evitare stream corrotti; la cache PWA viene svuotata automaticamente all'aggiornamento.
+Versione v40: ripristinate immagini dalla versione stabile precedente per evitare artefatti/corruzione; aggiornati i controlli speciali: Slime Orb solo Signori Titanium, Versione umana per Signori Elemental Fusion, Senza armatura per Signori Eclissi Suprema, Superpotere per Signori Neorganic.
